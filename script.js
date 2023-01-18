@@ -81,12 +81,20 @@ let audio_false = new Audio('sound/false.mp3');
 let audio_start = new Audio('sound/start.mp3')
 
 function startQuiz() {
-
-    if (currentquestion >= quiz.length) { 
+    if (gameIsOver()) { 
         endQuiz();
+    } else { 
+        updateNextQuestion();
     }
+}
+
+function gameIsOver() {
+    return currentquestion >= quiz.length;
+}
+
+function updateNextQuestion() {
     let questions = quiz[currentquestion];
-   
+    
     document.getElementById('initialPage').style.display = 'none';
     document.getElementById('questionPage').style.display = '';
     document.getElementById('question').innerHTML = questions['question'];
@@ -94,6 +102,7 @@ function startQuiz() {
     document.getElementById('answer_2').innerHTML = questions['answer_2'];
     document.getElementById('answer_3').innerHTML = questions['answer_3'];
     document.getElementById('answer_4').innerHTML = questions['answer_4'];
+    document.getElementById('foward').classList.add('pointerEvents');
 
     requestTopic();
 }
@@ -112,6 +121,7 @@ function selectAnswer(answer) {
             document.getElementById(rightAnswer).classList.add('green');
             audio_false.play();
         }
+        document.getElementById('foward').classList.remove('pointerEvents');
     }
     clicked = false;
     noHover();
@@ -145,9 +155,9 @@ function nextQuestion() {
 
 function preQuestion() {
     rightQuestions = 0;
-    if(currentquestion < quiz.length && currentquestion != 0) {
+    if(currentquestion <= quiz.length && currentquestion != 0) {
         currentquestion--;
-       startQuiz();
+        startQuiz();
     }
     if (currentquestion == 0) {
         document.getElementById('pre').style.opacity = '0.2';

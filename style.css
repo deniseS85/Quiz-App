@@ -27,9 +27,9 @@ body {
 
 .container {
     width: 460px;
-    height: 56%;
-    background-image: url('img/bg b.png');
-    background-size: 100% 100%;
+    height: 456px;
+    background-image: url('img/bg.png'); 
+    background-size: cover;
     display: flex;
     margin: 0;
 }
@@ -42,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
     font-family: 'PT Sans', sans-serif; 
@@ -50,7 +50,7 @@ body {
 
 .menu-bar {
     width: 130px;
-    height: 56%;
+    height: 435px;
     background-color: blue;
     color: white;
     display: flex;
@@ -93,7 +93,7 @@ body {
 }
 
 button {
-    width: 140px;
+    width: 170px;
     border: none; 
     background-color: rgb(252, 69, 19);
     padding: 10px;
@@ -152,7 +152,7 @@ button:hover {
 }
 
 .pre-back {
-    width: 100%;
+    width: 359px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -164,10 +164,11 @@ button:hover {
     background-color: rgba(191, 219, 252);
     opacity: 0.2;
     border-radius: 100%;
-    padding: 5px 16px;
+    padding: 5px 15px;
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 35px;
 }
 
 .end-page {
@@ -178,15 +179,16 @@ button:hover {
     justify-content: space-around;
     align-items: center;
     padding-bottom: 48px;
+    position: relative;;
 }
 
 .circle {
     background-color: rgba(252, 69, 19, 0.2);
     border-radius: 100%;
     position: absolute;
-    width: 428px;
-    height: 428px;
-    top: 183px;
+    width: 440px;
+    height: 440px;
+    top: 8px;
 }
 
 .end-page img {
@@ -197,9 +199,11 @@ button:hover {
     font-family: 'Rubik', sans-serif;
     font-weight: bold;
     z-index: 1;
+    font-size: 25px;
 }
 
 .score {
+    font-family: 'Rubik', sans-serif;
     display: flex;
     width: 80%;
     justify-content: space-around;
@@ -269,6 +273,7 @@ button:hover {
     .circle {
         width: 554px;
         height: 554px;
+        top: 275px;
     }
     .end-page img {
         width: 400px;
@@ -310,7 +315,7 @@ button:hover {
         font-size: 25px;
     }
     .answer-section {
-        width: 273px;
+        width: 336px;
         height: 54px;
         padding: 0;
     }
@@ -321,6 +326,7 @@ button:hover {
     .circle {
         width: 376px;
         height: 376px;
+        top: 204px;
     }
     .end-page {
         height: 90%;
@@ -341,6 +347,7 @@ button:hover {
     }
     .container {
         width: 100vw;
+        background-position: bottom;
     }
     .answer {
         margin-left: 37px;
@@ -352,6 +359,7 @@ button:hover {
     .circle {
         width: 388px;
         height: 388px;
+        top: 194px;
     }
     .end-page img {
         width: 318px;
@@ -361,5 +369,18 @@ button:hover {
         width: 227px;
         font-size: 20px;
         line-height: 40px;
+    }
+}
+@media (max-width: 375px) and (max-height:667px) {
+    .circle {
+        width: 356px;
+        height: 356px;
+        top: 117px;
+    }
+}
+@media  (max-width: 375px) and (max-height: 812px) {
+    .circle {
+        width: 362px;
+        height: 362px;
     }
 }
