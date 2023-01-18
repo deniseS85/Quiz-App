@@ -35,7 +35,7 @@
         </div>
         <div class="container">
             <div class="content">
-                <div>Welcome to<br>The Awesome HTML Quiz</div>
+                <div class="startText">Welcome to<br>The Awesome HTML Quiz</div>
                 <button onclick="startQuiz()">START</button>
             </div>
         </div>
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="pre-back">
-                    <div id="pre" class="slider">&#x3C;</div>
+                    <div id="pre" class="slider" onclick="preQuestion()">&#x3C;</div>
                     <div id="foward" class="slider" onclick="nextQuestion()">&#x3E;</div>
                 </div>
             </div>
@@ -119,14 +119,16 @@
         </div>
         <div class="container">
             <div class="end-page">
+                <div class="circle"></div>
                 <img src="img/Group 5.png">
                 <div class="complete-quiz">COMPLETE HTML QUIZ</div>
                 <div class="score">
                     <div class="youre-score">YOURE SCORE</div>
                     <div id="endScore"></div>
                 </div>
-                <button>SHARE</button>
-                <button onclick="replay()">REPLAY</button>
+                <div class="end-btn">
+                    <button onclick="replay()">REPLAY</button>
+                </div>
             </div>
         </div>
     </div>

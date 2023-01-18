@@ -78,8 +78,10 @@ let clicked = true;
 let rightQuestions = 0;
 let audio_correct = new Audio('sound/win.mp3');
 let audio_false = new Audio('sound/false.mp3');
+let audio_start = new Audio('sound/start.mp3')
 
 function startQuiz() {
+
     if (currentquestion >= quiz.length) { 
         endQuiz();
     }
@@ -142,9 +144,16 @@ function nextQuestion() {
 }
 
 function preQuestion() {
-    currentquestion--;
-    clicked = true;
+    rightQuestions = 0;
+    if(currentquestion < quiz.length && currentquestion != 0) {
+        currentquestion--;
+       startQuiz();
+    }
+    if (currentquestion == 0) {
+        document.getElementById('pre').style.opacity = '0.2';
+    }   
 }
+
 function requestTopic() {
     if (currentquestion == 0) {
         document.getElementById('general').classList.remove('hidden');
@@ -163,6 +172,7 @@ function requestTopic() {
         document.getElementById('sport').classList.remove('hidden');
     }
 }
+
 function endQuiz() {
     document.getElementById('endPage').style.display = '';
     document.getElementById('questionPage').style.display = 'none';
