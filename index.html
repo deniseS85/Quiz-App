@@ -8,75 +8,73 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <script src="jsonArray.js"></script>
-    <script src="generateHTML.js"></script>
     <title>Quiz App</title>
 </head>
 <body>
-    <div class="wrapper flex-center d-none">
+    <div id="initialPage" class="wrapper flex-center">
         <div class="menu-bar">
            <img src="img/logo 2.png">
             <div class="nav">
-                <div>HTML</div>
-                <div>CSS</div>
-                <div>JS</div>
-                <div>Java</div>
+                <div>Allgemein</div>
+                <div>Astronomie</div>
+                <div>Musik</div>
+                <div>Sport</div>
             </div>
         </div>
         <div class="container">
             <div class="content">
                 <div>Welcome to<br>The Awesome HTML Quiz</div>
-                <button>START</button>
+                <button onclick="startQuiz()">START</button>
             </div>
         </div>
     </div>
 
-    <div class="wrapper flex-center d-none">
+    <div id="questionPage" class="wrapper flex-center" style="display: none;">
         <div class="menu-bar">
            <img src="img/logo 2.png">
             <div class="nav">
-                <div>HTML</div>
-                <div>CSS</div>
-                <div>JS</div>
-                <div>Java</div>
+                <div>Allgemein</div>
+                <div>Astronomie</div>
+                <div>Musik</div>
+                <div>Sport</div>
             </div>
         </div>
         <div class="container">
             <div class="quiz-section">
-                <div class="header">WEr hat rfuncen</div>
-                <div class="answer-section">
+                <div id="question" class="header"></div>
+                <div class="answer-section" id="1" onclick="selectQuestion(1)">
                     <div class="letter">A</div>
-                    <div class="answer">robbie</div>
+                    <div id="answer_1" class="answer"></div>
                 </div>
-                <div class="answer-section">
+                <div class="answer-section" id="2" onclick="selectQuestion(2)">
                     <div class="letter">B</div>
-                    <div class="answer">robbie</div>
+                    <div id="answer_2" class="answer"></div>
                 </div>
-                <div class="answer-section">
+                <div class="answer-section" id="3" onclick="selectQuestion(3)">
                     <div class="letter">C</div>
-                    <div class="answer">robbie</div>
+                    <div id="answer_3" class="answer"></div>
                 </div>
-                <div class="answer-section">
+                <div class="answer-section" id="4" onclick="selectQuestion(4)">
                     <div class="letter">D</div>
-                    <div class="answer">robbie</div>
+                    <div id="answer_4" class="answer"></div>
                 </div>
 
                 <div class="pre-back">
-                    <div class="slider">&#x3C;</div>
-                    <div class="slider">&#x3E;</div>
+                    <div id="pre" class="slider">&#x3C;</div>
+                    <div id="foward" class="slider" onclick="nextQuestion()">&#x3E;</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="wrapper flex-center ">
+    <div class="wrapper flex-center" style="display: none;">
         <div class="menu-bar">
            <img src="img/logo 2.png">
             <div class="nav">
-                <div>HTML</div>
-                <div>CSS</div>
-                <div>JS</div>
-                <div>Java</div>
+                <div>Allgemein</div>
+                <div>Astronomie</div>
+                <div>Musik</div>
+                <div>Sport</div>
             </div>
         </div>
         <div class="container">
