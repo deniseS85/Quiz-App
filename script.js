@@ -74,6 +74,7 @@ let quiz = [
 ];
 
 let currentquestion = 0;
+let rightAnswer =  quiz[currentquestion]['right'];
 
 function startQuiz() {
     let questions = quiz[currentquestion];
@@ -87,19 +88,30 @@ function startQuiz() {
     document.getElementById('answer_4').innerHTML = questions['answer_4'];
 }
 
-function selectQuestion(answer) {
-    let rightAnswer =  quiz[currentquestion]['right'];
+function selectAnswer(answer) {
     
     if(answer == rightAnswer) {
         document.getElementById(answer).classList.add('green');
         document.getElementById('foward').style.opacity = "1";
     } else {
         document.getElementById(answer).classList.add('red');
-        document.getElementById('foward').style.opacity = "1";
+        document.getElementById(rightAnswer).classList.add('green');
     }
+    document.getElementById('foward').style.opacity = "1";
 }
 
 function nextQuestion() {
     currentquestion++;
-    selectQuestion();
+
+    document.getElementById('pre').style.opacity = "1";
+    document.getElementById('foward').style.opacity = "0.2";
+
+    let allAnswers = document.querySelectorAll('.quiz-section .answer-section');
+
+    for (let i = 0; i < allAnswers.length; i++) {
+       
+       allAnswers[i].classList.remove('green');
+       allAnswers[i].classList.remove('red');
+    }
+    startQuiz();
 }
