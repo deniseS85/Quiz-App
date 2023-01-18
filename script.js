@@ -74,11 +74,17 @@ let quiz = [
 ];
 
 let currentquestion = 0;
-let rightAnswer =  quiz[currentquestion]['right'];
+let clicked = true;
+let rightQuestions = 0;
+let audio_correct = new Audio('sound/win.mp3');
+let audio_false = new Audio('sound/false.mp3');
 
 function startQuiz() {
+    if (currentquestion >= quiz.length) { 
+        endQuiz();
+    }
     let questions = quiz[currentquestion];
-
+   
     document.getElementById('initialPage').style.display = 'none';
     document.getElementById('questionPage').style.display = '';
     document.getElementById('question').innerHTML = questions['question'];
@@ -86,32 +92,87 @@ function startQuiz() {
     document.getElementById('answer_2').innerHTML = questions['answer_2'];
     document.getElementById('answer_3').innerHTML = questions['answer_3'];
     document.getElementById('answer_4').innerHTML = questions['answer_4'];
+
+    requestTopic();
 }
 
 function selectAnswer(answer) {
-    
-    if(answer == rightAnswer) {
-        document.getElementById(answer).classList.add('green');
-        document.getElementById('foward').style.opacity = "1";
-    } else {
-        document.getElementById(answer).classList.add('red');
-        document.getElementById(rightAnswer).classList.add('green');
+    let rightAnswer =  quiz[currentquestion]['right'];
+   
+    if(clicked) { 
+        if(answer == rightAnswer) {
+            document.getElementById(answer).classList.add('green');
+            document.getElementById('foward').style.opacity = '1';
+            rightQuestions++;
+            audio_correct.play();
+        } else {
+            document.getElementById(answer).classList.add('red');
+            document.getElementById(rightAnswer).classList.add('green');
+            audio_false.play();
+        }
     }
-    document.getElementById('foward').style.opacity = "1";
+    clicked = false;
+    noHover();
+    document.getElementById('foward').style.opacity = '1';
+}
+
+function noHover() {
+    let allAnswers = document.querySelectorAll('.quiz-section .answer-section');
+    for (let i = 0; i < allAnswers.length; i++) {
+        allAnswers[i].classList.add('pointerEvents');
+    }
 }
 
 function nextQuestion() {
     currentquestion++;
+    clicked = true;
 
-    document.getElementById('pre').style.opacity = "1";
-    document.getElementById('foward').style.opacity = "0.2";
+    document.getElementById('pre').style.opacity = '1';
+    document.getElementById('foward').style.opacity = '0.2';
 
     let allAnswers = document.querySelectorAll('.quiz-section .answer-section');
 
     for (let i = 0; i < allAnswers.length; i++) {
-       
        allAnswers[i].classList.remove('green');
        allAnswers[i].classList.remove('red');
+       allAnswers[i].classList.remove('pointerEvents');
     }
+    requestTopic();
+    startQuiz();
+}
+
+function preQuestion() {
+    currentquestion--;
+    clicked = true;
+}
+function requestTopic() {
+    if (currentquestion == 0) {
+        document.getElementById('general').classList.remove('hidden');
+        document.getElementById('sport').classList.add('hidden');
+    }
+    if (currentquestion == 4) {
+        document.getElementById('general').classList.add('hidden');
+        document.getElementById('astro').classList.remove('hidden');
+    }
+    if (currentquestion == 6) {
+        document.getElementById('astro').classList.add('hidden');
+        document.getElementById('music').classList.remove('hidden');
+    }
+    if (currentquestion == 8) {
+        document.getElementById('music').classList.add('hidden');
+        document.getElementById('sport').classList.remove('hidden');
+    }
+}
+function endQuiz() {
+    document.getElementById('endPage').style.display = '';
+    document.getElementById('questionPage').style.display = 'none';
+    document.getElementById('endScore').innerHTML = `<b>${rightQuestions} / ${quiz.length}</b>`;
+}
+
+function replay() {
+    document.getElementById('endPage').style.display = 'none';
+    document.getElementById('questionPage').style.display = '';
+    currentquestion = 0;
+    rightQuestions = 0;
     startQuiz();
 }
