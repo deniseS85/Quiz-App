@@ -50,7 +50,7 @@ body {
 
 .menu-bar {
     width: 130px;
-    height: 435px;
+    height: 456px;
     background-color: blue;
     color: white;
     display: flex;
@@ -88,6 +88,20 @@ body {
     margin-right: 11px;
 }
 
+.progress-bar-container {
+    width: 100%;
+    background-color: blue;
+    border-radius: 10px;
+    color: black;
+    height: 17px;
+}
+
+.progress-bar {
+    background-color: aqua;
+    border-radius: 10px;
+    height: 17px;
+}
+
 .end-btn {
     z-index: 1;
 }
@@ -100,10 +114,23 @@ button {
     border-radius: 10px;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 button:hover {
     background-color: rgba(252, 69, 19, 0.8);
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+button:enabled {
+    opacity: 1;
+}
+
+.amount-questions {
+    font-family: 'Rubik Medium', sans-serif;
 }
 
 .quiz-section {
@@ -117,6 +144,7 @@ button:hover {
 
 .header {
     font-family: 'Rubik Medium', sans-serif;
+    width: 358px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -208,6 +236,7 @@ button:hover {
     width: 80%;
     justify-content: space-around;
     z-index: 1;
+    font-size: 20px;
 }
 
 .youre-score {
@@ -296,13 +325,15 @@ button:hover {
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 641px) {
     .menu-bar {
         display: none;
     }
     .container {
         width: 100vw;
     }
+}
+@media (max-width: 390px) {
     .startText {
         font-size: 34px;
     }
