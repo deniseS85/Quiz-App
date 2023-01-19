@@ -113,7 +113,6 @@ function processBar() {
     let percent = ((currentquestion+1)/quiz.length) * 100;
     document.getElementById('progress_bar').innerHTML = `${percent} %`;
     document.getElementById('progress_bar').style = `width:${percent}%;`;
-    console.log(percent);
 }
 
 function selectAnswer(answer) {

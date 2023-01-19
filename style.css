@@ -279,6 +279,8 @@ button:enabled {
     }
     .menu-bar img {
         width: 97px;
+        margin-top: 132px;
+        margin-left: 47px;
     }
     .navItem {
         font-size: 25px;
@@ -299,10 +301,10 @@ button:enabled {
     .nav div {
         padding-left: 11px;
     }
-    .circle {
-        width: 554px;
-        height: 554px;
-        top: 275px;
+    .circle { 
+        width: 495px;
+        height: 495px;
+        top: 336px;
     }
     .end-page img {
         width: 400px;
@@ -357,7 +359,7 @@ button:enabled {
     .circle {
         width: 376px;
         height: 376px;
-        top: 204px;
+        top: 196px;
     }
     .end-page {
         height: 90%;
@@ -390,7 +392,7 @@ button:enabled {
     .circle {
         width: 388px;
         height: 388px;
-        top: 194px;
+        top: 210px;
     }
     .end-page img {
         width: 318px;
@@ -406,7 +408,7 @@ button:enabled {
     .circle {
         width: 356px;
         height: 356px;
-        top: 117px;
+        top: 190px;
     }
 }
 @media  (max-width: 375px) and (max-height: 812px) {
